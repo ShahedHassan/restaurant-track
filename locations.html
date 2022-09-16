@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locations</title>
+    <link rel="stylesheet" href="locations.css">
+</head>
+<body>
+    <div class="custom-shape-divider-top-1652897771">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+    
+    <header>
+        <!--Logo Top Left-->
+        <section>
+          <img class="logo" src="pics/logo.png" alt="Helpers Hub logo">
+        </section>
+           <!--Navigation Bar-->
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="locations.html">Locations</a></li>
+              <li><a href="friends.html">Friends</a></li>
+            </ul>
+        </nav>
+        </header>
+    
+        <h1>My Location</h1>
+        <div id='map'>
+
+        </div>
+        <script>
+            function initMap(){
+                var options = {
+                    zoom:8,
+                    center:{lat:30.2672,lng:-97.7431}
+                }
+                var map = new
+                google.maps.Map(document.getElementById('map'), options);
+
+                //adds marker
+                var marker = new google.maps.Marker({
+                    position:{lat:30.3853553,lng:-97.7366139},
+                    map:map
+                });
+
+                var infoWindow = new google.maps.infoWindow({
+                    content:'<h1>RV Office<h1>'
+                });
+
+                marker.addListener('click', function(){
+                    infoWindow.open(map, marker);
+                });
+            }
+        </script>
+        <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-Nm4g2F_HjUL25LlpZY0HQmtAryHCemM&callback=initMap&v=weekly"
+        defer
+      ></script>
+
+<footer>
+    <p>Sample Restaurant Locator Footer</p>
+</footer>
+</body>
+</html>
